@@ -6,10 +6,10 @@ public class Main {
     public static Card[] cards;
 
     public static void main(String[] args) {
-        start();
+        flashCard();
     }
 
-    private static void start() {
+    private static void flashCard() {
 
         System.out.println("Input the number of cards:");
         String numberOfCardsStr = scanner.nextLine();
