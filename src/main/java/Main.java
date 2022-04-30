@@ -31,13 +31,7 @@ public class Main {
             cards[i] = card;
         }
 
-        for (int i = 0; i < cards.length; i++) {
-            System.out.println("Print the definition of " + "\"" + cards[i].getQuestion() + "\":" );
-            String answer = scanner.nextLine();
-
-            String errorMessage = "Wrong. The right answer is " + "\"" + cards[i].getSolution() + "\". ";
-            String message =  cards[i].getSolution().equals(answer) ? "Correct!" : errorMessage;
-            System.out.println(message);
-        }
+        Game game = new Game(cards);
+        game.startConsole();
     }
 }

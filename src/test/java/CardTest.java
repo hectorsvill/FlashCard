@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CardTest {
     private Card[] cards;
+
     @BeforeEach
     void setUp() {}
 
@@ -13,8 +14,8 @@ class CardTest {
         String question = "test";
         String solution = "a test";
         Card c1 = new Card(question,solution);
-        assertEquals(c1.getQuestion(),"test");
-        assertEquals(c1.getSolution(),"a test");
+        assertEquals(c1.getQuestion(),question);
+        assertEquals(c1.getSolution(),solution);
     }
 
 
