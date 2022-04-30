@@ -12,10 +12,11 @@ class CardTest {
     void testCardInput() {
         String question = "test";
         String solution = "a test";
-        Card c1 = new Card("test","a test");
-        assertTrue(c1.getQuestion().equals("test"));
-        assertTrue(c1.getSolution().equals("a test"));
+        Card c1 = new Card(question,solution);
+        assertEquals(c1.getQuestion(),"test");
+        assertEquals(c1.getSolution(),"a test");
     }
+
 
 
 }
