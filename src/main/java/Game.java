@@ -8,7 +8,6 @@ public class Game {
         this.cards = cards;
     }
 
-
     public void startConsole() {
         for (Card card : cards) {
             System.out.println("Print the definition of " + "\"" + card.getQuestion() + "\":");
@@ -19,8 +18,5 @@ public class Game {
             System.out.println(message);
         }
     }
-
-
-
 
 }
