@@ -7,7 +7,9 @@ class CardTest {
     private Card[] cards;
 
     @BeforeEach
-    void setUp() {}
+    void setUp() {
+
+    }
 
     @Test
     void testCardInput() {
