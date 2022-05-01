@@ -1,18 +1,26 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
 public class CardCollection {
     final static Scanner scanner = new Scanner(System.in);
-    private Card[] cards;
+    private List<Card> cardList = new ArrayList<>();
+
+    public List<Card> getCards() {
+        return cardList;
+    }
 
     public void withConsole() {
         System.out.println("Input the number of cards:");
         String numberOfCardsStr = scanner.nextLine();
         int numberOfCards = parseInt(numberOfCardsStr);
-        cards = new Card[numberOfCards];
 
-        for (int i = 0; i < cards.length; i++) {
+        for (int i = 0; i < numberOfCards; i++) {
             System.out.println("Card #" + (i + 1) + ":");
             String question = scanner.nextLine();
 
@@ -20,12 +28,35 @@ public class CardCollection {
             String solution = scanner.nextLine();
 
             Card card = new Card(question, solution);
-            cards[i] = card;
+            cardList.add(card);
         }
     }
 
-    public Card[] getCards() {
-        return cards;
+    public void withResourceTxt(String fileName) {
+        URL url = getClass().getClassLoader().getResource(fileName);
+
+        if (url == null) {
+            System.out.println("url is null: " );
+            return;
+        }
+
+        try {
+            File triviaFile = new File(url.getFile());
+            Scanner reader = new Scanner(triviaFile);
+
+            while (reader.hasNextLine()) {
+                String q = reader.nextLine();
+                String a = reader.nextLine().replaceFirst("Answer: ", "");
+                Card card = new Card(q, a);
+                cardList.add(card);
+            }
+
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("CardCollection.resourceTxt ERROR:File not found");
+            e.printStackTrace();
+        }
     }
+
 
 }
