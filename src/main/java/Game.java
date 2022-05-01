@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Game {
     final static Scanner scanner = new Scanner(System.in);
-    private List<Card> cardList = new ArrayList<>();
+    private List<Card> cardList;
 
     public Game(List<Card> cards) {
         this.cardList = cards;

@@ -33,15 +33,14 @@ public class CardCollection {
     }
 
     public void withResourceTxt(String fileName) {
-        URL url = getClass().getClassLoader().getResource(fileName);
-
-        if (url == null) {
-            System.out.println("url is null: " );
+        URL path = getClass().getClassLoader().getResource(fileName);
+        if (path == null) {
+            System.out.println("CardCollection.resourceTxt ERROR:File not found");
             return;
         }
 
         try {
-            File triviaFile = new File(url.getFile());
+            File triviaFile = new File(path.getFile());
             Scanner reader = new Scanner(triviaFile);
 
             while (reader.hasNextLine()) {
